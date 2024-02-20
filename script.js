@@ -1,31 +1,43 @@
 // richiesta Km ed età all'utente
-const km = prompt('Inserire i Km che si vogliono percorrere');
-const age = prompt('Inserire eta del passeggero');
-console.log(km, age);
+const km = parseInt( prompt('Inserire i Km che si vogliono percorrere'));
+const age = parseInt( prompt('Inserire eta del passeggero'));
+console.log('Km--->', km, 'eta--->', age);
+
 
 const prezzoPerKm = 0.21;
 
+// calcolo il prezzo del biglietto al Km + aggiunta della seconda cifra decimale
+let prezzoParziale = km * prezzoPerKm;
+prezzoParziale = prezzoParziale.toFixed(2);
 
-// calcolo il prezzo del biglietto al Km
-const prezzoParziale = km * prezzoPerKm;
-console.log(prezzoParziale);
+console.log('prezzoPerKm--->', prezzoParziale);
+
+
+let prezzoFinale = 0;
 
 // Casistiche di sconto Under e Over
 if (age < 18){
-   const prezzoScontatoUnder = (prezzoParziale * 20) / 100;
-   console.log(prezzoScontatoUnder);
-   const prezzoFinale = prezzoParziale - prezzoScontatoUnder;
-   console.log(prezzoFinale);
+   let scontoUnder = (prezzoParziale * 20) / 100;
+   scontoUnder = scontoUnder.toFixed(2);
+   prezzoFinale = prezzoParziale - scontoUnder;
+}
+else if (age > 65){
+   let scontoOver = (prezzoParziale * 40) / 100;
+   scontoOver = scontoOver.toFixed(2);
+   prezzoFinale = prezzoParziale - scontoOver;
+}
+else{  // age compreso tra 18 e 65 anni 
+   prezzoFinale = prezzoParziale;
 }
 
-if (age > 65){
-   const prezzoScontatoUnder = (prezzoParziale * 40) / 100;
-   console.log(prezzoScontatoUnder);
-   const prezzoFinale = prezzoParziale - prezzoScontatoUnder;
-   console.log(prezzoFinale);
-}
+console.log('prezzoFinale--->', prezzoFinale);
 
 
+// inserisco nell'HTML il prezzoFinale
+document.getElementById('output-prezzofinale').innerHTML += `${prezzoFinale}`;
 
 
-
+// inserisco i valori scelti dall'utente: Km e età
+document.getElementById('output-kminseriti').innerHTML += `${km} Km`;
+document.getElementById('output-etainserita').innerHTML += `${age}`;
+document.getElementById('output-prezzoparziale').innerHTML += `${prezzoParziale}`;
