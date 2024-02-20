@@ -37,7 +37,7 @@ console.log('prezzoFinale--->', prezzoFinale);
 document.getElementById('output-prezzofinale').innerHTML += `${prezzoFinale}`;
 
 
-// inserisco i valori scelti dall'utente: Km e età
+// inserisco nell'HTML i valori scelti dall'utente: Km, età e il costo del biglitto parziale
 document.getElementById('output-kminseriti').innerHTML += `${km} Km`;
 document.getElementById('output-etainserita').innerHTML += `${age}`;
 document.getElementById('output-prezzoparziale').innerHTML += `${prezzoParziale}`;
