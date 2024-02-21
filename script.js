@@ -26,15 +26,14 @@ else{  // age compreso tra 18 e 65 anni
    prezzoFinale = prezzoParziale;
 }
 
-prezzoFinale = prezzoFinale.toFixed(2);
 console.log('prezzoFinale--->', prezzoFinale);
 
 
 // inserisco nell'HTML i valori scelti dall'utente: Km, età e il costo del biglitto parziale
 document.getElementById('output-kminseriti').innerHTML += `${km} Km`;
 document.getElementById('output-etainserita').innerHTML += `${age}`;
-document.getElementById('output-prezzoparziale').innerHTML += `${prezzoParziale}`;
+document.getElementById('output-prezzoparziale').innerHTML += `${prezzoParziale.toFixed(2)}`;
 
 
 // inserisco nell'HTML il prezzoFinale
-document.getElementById('output-prezzofinale').innerHTML += `${prezzoFinale}`;
+document.getElementById('output-prezzofinale').innerHTML += `${prezzoFinale.toFixed(2)}`;
